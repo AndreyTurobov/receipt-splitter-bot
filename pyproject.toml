@@ -7,6 +7,8 @@ authors = ["andrei_turobov <forgunn@yandex.ru>"]
 [tool.poetry.dependencies]
 python = "^3.12"
 aiohttp = "^3.9.5"
+aiogram = "^3.7.0"
+pydantic-settings = "^2.3.1"
 
 [tool.poetry.dev-dependencies]
 
