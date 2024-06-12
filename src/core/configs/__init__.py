@@ -1,4 +1,4 @@
-from core.configs.telegram import TelegramSettings
+from src.core.configs.telegram import TelegramSettings
 
 
 class Settings(TelegramSettings):
