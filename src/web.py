@@ -11,7 +11,7 @@ async def init_app() -> web.Application:
     app.router.add_route(
         "*",
         settings.TELEGRAM_WEBHOOK_PATH,
-        telegram_view_factory(),
+        await telegram_view_factory(),
         name="tg_webhook_handler",
     )
 
