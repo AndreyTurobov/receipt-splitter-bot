@@ -10,7 +10,7 @@ from src.core.configs import settings
 
 
 async def command_start_handler(message: types.Message) -> None:
-    await message.answer(f'Hi, {message.from_user.full_name}!')
+    await message.answer(f"Hi, {message.from_user.full_name}!")
 
 
 class CustomDispatcher(Dispatcher):
