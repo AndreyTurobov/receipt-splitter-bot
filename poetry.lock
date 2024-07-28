@@ -535,6 +535,14 @@ python-versions = ">=3.7"
 cffi = {version = "*", markers = "implementation_name == \"pypy\""}
 
 [[package]]
+name = "ruff"
+version = "0.5.5"
+description = "An extremely fast Python linter and code formatter, written in Rust."
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -609,7 +617,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.12"
-content-hash = "90092a5e72164453e44a653d95cb34f28a90c094800d53a51fea11da852f4e33"
+content-hash = "f222c08dee254696686eb621d120c1670f3d6a943452a6273424dca4427c9f26"
 
 [metadata.files]
 aiofiles = []
@@ -655,6 +663,7 @@ python-dateutil = []
 python-dotenv = []
 pywin32 = []
 pyzmq = []
+ruff = []
 six = []
 stack-data = []
 tornado = []
