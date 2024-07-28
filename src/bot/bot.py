@@ -5,6 +5,7 @@ from aiogram import (
 )
 from aiogram.filters import CommandStart
 
+from src.bot.view import TelegramWebhookView
 from src.core.configs import settings
 
 
@@ -20,12 +21,12 @@ class CustomDispatcher(Dispatcher):
         return await super().process_update(update)
 
 
-async def init_bot() -> tuple[Bot, Dispatcher]:
+async def telegram_view_factory() -> TelegramWebhookView:
     bot: Bot = Bot(token=settings.TELEGRAM_API_KEY)
     await bot.set_webhook(settings.TELEGRAM_WEBHOOK_URL)
 
     dp = Dispatcher()
 
-    dp.message(CommandStart(), command_start_handler)
+    dp.message.register(CommandStart(), command_start_handler)
 
-    return bot, dp
+    return TelegramWebhookView(dispatcher=dp, bot=bot)
