@@ -18,9 +18,36 @@ class AddFriendMessageBuilder(BaseMessageBuilder):
                 ),
                 InlineKeyboardButton(
                     text="Отмена",
-                    url="https://ya.ru",
+                    callback_data="start",
                 ),
             ]
         ],
         resize_keyboard=True,
     )
+
+
+class AddFriendsManuallyMessageBuilder(BaseMessageBuilder):
+    _text = (
+        "Ты выбрал добавить друга вручную."
+        "Пожалуйста, введи имя друга, которого хочешь добавить:"
+    )
+    _reply_markup = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(
+                    text="Отмена",
+                    callback_data="friend",
+                ),
+            ]
+        ],
+        resize_keyboard=True,
+    )
+
+
+class GetFriendRequestMessageBuilder(BaseMessageBuilder):
+    def __init__(self, user_ref_id: str) -> None:
+        self.user_ref_id = user_ref_id
+
+    @property
+    def text(self) -> str:
+        return ""
