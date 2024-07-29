@@ -7,12 +7,13 @@ authors = ["andrei_turobov <forgunn@yandex.ru>"]
 [tool.poetry.dependencies]
 python = "^3.12"
 aiohttp = "^3.9.5"
-aiogram = "^3.7.0"
-pydantic-settings = "^2.3.1"
+aiogram = "^3.10.0"
+pydantic-settings = "^2.3.4"
 SQLAlchemy = {extras = ["asyncio"], version = "^2.0.31"}
 punq = "^0.7.0"
 asyncpg = "^0.29.0"
 elastic-apm = {extras = ["opentelemetry"], version = "^6.22.3"}
+alembic = "^1.13.2"
 
 [tool.poetry.dev-dependencies]
 ipython = "^8.26.0"
