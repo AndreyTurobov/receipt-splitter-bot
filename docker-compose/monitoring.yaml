@@ -32,14 +32,10 @@ services:
     - cluster.name=docker-cluster
     - cluster.routing.allocation.disk.threshold_enabled=false
     - discovery.type=single-node
-    - xpack.security.enabled=false
-    - ES_JAVA_OPTS=-Xms512m -Xmx512m
     ulimits:
       memlock:
         hard: -1
         soft: -1
-    volumes:
-    - esdata:/var/lib/elasticsearch/data
     ports:
     - 9200:9200
     healthcheck:
