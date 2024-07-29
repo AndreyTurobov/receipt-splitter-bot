@@ -16,8 +16,8 @@ class Database:
     def __init__(self, url: str, ro_url: str) -> None:
         self._async_engine = create_async_engine(
             url=url,
-            pool_pre_ping=True,
-            # echo=settings.ECHO_SQL,
+            pool_pre_ping=False,
+            # echo=False,
             isolation_level="READ COMMITTED",
         )
         self._async_session = async_sessionmaker(
@@ -26,8 +26,8 @@ class Database:
         )
         self._ro_async_engine = create_async_engine(
             url=ro_url,
-            pool_pre_ping=True,
-            # echo=settings.ECHO_SQL,
+            pool_pre_ping=False,
+            # echo=False,
             isolation_level="AUTOCOMMIT",
         )
         self._ro_async_session = async_sessionmaker(

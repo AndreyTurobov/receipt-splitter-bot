@@ -14,7 +14,7 @@ class PostgresSettings(GeneralSettings):
     @model_validator(mode="before")  # noqa
     @classmethod
     def assemble_postgres_url(cls, values: dict[str, str]) -> dict[str, str]:
-        if values.get("POSTGRES_USER"):
+        if values.get("POSTGRES_DB_URL"):
             return values
 
         username = values.get("POSTGRES_USER")

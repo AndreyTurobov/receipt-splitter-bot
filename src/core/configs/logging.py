@@ -9,7 +9,7 @@ from src.core.configs.general import (
 
 
 class LoggingSettings(GeneralSettings):
-    ELASTIC_APM_SERVER: str = None | None
+    ELASTIC_APM_SERVER: str | None = None
 
     @property
     def ELASTIC_APM(self) -> dict[str, str]:
