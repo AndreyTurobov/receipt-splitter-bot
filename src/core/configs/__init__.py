@@ -1,5 +1,5 @@
-from src.core.configs.general import GeneralSettings
 from src.core.configs.database import PostgresSettings
+from src.core.configs.general import GeneralSettings
 from src.core.configs.telegram import TelegramSettings
 
 
