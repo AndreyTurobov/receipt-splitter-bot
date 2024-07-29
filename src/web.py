@@ -1,4 +1,5 @@
 from aiohttp import web
+from elasticapm.contrib.aiohttp import ElasticAPM
 
 from src.api.internal.router import router as internal_router
 from src.bot.bot import telegram_view_factory
@@ -16,5 +17,8 @@ async def init_app() -> web.Application:
     )
 
     app.router.add_routes(internal_router)
+
+    app["ELASTIC_APM"] = settings.ELASTIC_APM
+    _ = ElasticAPM(app)
 
     return app
