@@ -25,3 +25,5 @@ class PostgresSettings(GeneralSettings):
         values["POSTGRES_DB_URL"] = (
             f"postgresql+asyncpg://{username}:{password}@{host}:{port}/{db_name}"
         )
+
+        return values
