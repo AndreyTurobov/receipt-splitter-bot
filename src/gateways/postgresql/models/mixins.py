@@ -1,12 +1,14 @@
 from datetime import datetime
 
-import sqlalchemy as sa
 from sqlalchemy import func
+from sqlalchemy.orm import (
+    Mapped,
+    mapped_column,
+)
 
 
 class CreatedAtOnlyMixin:
-    created_at = sa.Column(
-        sa.DateTime(timezone=True),
+    created_at: Mapped[datetime] = mapped_column(
         default=func.now(),
         server_default=func.now(),
         nullable=False,
@@ -15,8 +17,7 @@ class CreatedAtOnlyMixin:
 
 
 class UpdatedAtMixin(CreatedAtOnlyMixin):
-    updated_at = sa.Column(
-        sa.DateTime(timezone=True),
+    updated_at: Mapped[datetime] = mapped_column(
         default=func.now(),
         server_default=func.now(),
         onupdate=func.now(),
