@@ -18,3 +18,12 @@ db-down:
 
 monitoring-up:
 	docker-compose --env-file .env -f $(MONITORING) up -d
+
+migrate:
+	alembic upgrade head
+
+makemigrations:
+	alembic revision --autogenerate -m="$(m)"
+
+downgrade:
+	alembic downgrade -1
