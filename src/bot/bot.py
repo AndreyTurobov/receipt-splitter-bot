@@ -15,18 +15,19 @@ from src.bot.handlers.add_friends_handlers import (
     start_add_friend_handler,
 )
 from src.bot.handlers.start_handler import start_handler
+from src.bot.middlewares import GetOrCreateUserMiddleware
 from src.bot.view import TelegramWebhookView
 from src.core.configs import settings
 
 logger = logging.getLogger(__name__)
 
 
-async def telegram_view_factory() -> TelegramWebhookView:
-    bot: Bot = Bot(token=settings.TELEGRAM_API_KEY)
-    await bot.set_webhook(settings.TELEGRAM_WEBHOOK_URL)
+def add_middlewares(dp: Dispatcher) -> None:
+    dp.message.middleware(GetOrCreateUserMiddleware())
+    dp.callback_query.middleware(GetOrCreateUserMiddleware())
 
-    dp = Dispatcher()
 
+def add_handlers(dp: Dispatcher) -> None:
     dp.message.register(start_handler, CommandStart())
     dp.callback_query.register(start_handler, F.data == "start")
 
@@ -41,5 +42,15 @@ async def telegram_view_factory() -> TelegramWebhookView:
         add_friend_manually_handler,
         Command(commands="add_friend_manually"),
     )
+
+
+async def telegram_view_factory() -> TelegramWebhookView:
+    bot: Bot = Bot(token=settings.TELEGRAM_API_KEY)
+    await bot.set_webhook(settings.TELEGRAM_WEBHOOK_URL)
+
+    dp = Dispatcher()
+
+    add_middlewares(dp)
+    add_handlers(dp)
 
     return TelegramWebhookView(dispatcher=dp, bot=bot)
