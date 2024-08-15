@@ -29,7 +29,7 @@ class GetOrCreateUserMiddleware(BaseMiddleware):
             first_name=telegram_user.first_name,
             last_name=telegram_user.last_name,
             username=telegram_user.username,
-            language_code=telegram_user.language_code
+            language_code=telegram_user.language_code,
         )
         container = get_container()
         service = container.resolve(IUserService)
