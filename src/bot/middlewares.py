@@ -10,9 +10,9 @@ from aiogram.types import (
     Message,
 )
 
-from src.core.containers import get_container
 from src.domain.entities.user import User
 from src.domain.services.user import IUserService
+from src.project.containers import get_container
 
 
 class GetOrCreateUserMiddleware(BaseMiddleware):

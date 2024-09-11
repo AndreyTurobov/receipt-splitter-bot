@@ -2,13 +2,13 @@ import asyncio
 from logging.config import fileConfig
 
 from alembic import context
-from core.configs import settings
 from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from src.gateways.postgresql.models import *  # noqa F403
 from src.gateways.postgresql.models.base import BaseORM
+from src.project.configs import settings
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

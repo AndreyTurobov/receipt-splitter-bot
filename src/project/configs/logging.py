@@ -2,7 +2,7 @@ import logging
 
 import ecs_logging
 
-from src.core.configs.general import (
+from src.project.configs.general import (
     Environment,
     GeneralSettings,
 )

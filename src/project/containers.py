@@ -2,7 +2,6 @@ from functools import lru_cache
 
 import punq
 
-from src.core.configs import settings
 from src.domain.services.healthcheck import IHealthcheckService
 from src.domain.services.user import IUserService
 from src.gateways.postgresql.database import Database
@@ -10,6 +9,7 @@ from src.gateways.postgresql.repositories.user import (
     IUserRepository,
     ORMUserRepository,
 )
+from src.project.configs import settings
 from src.services.healthcheck import (
     CompositeHealthcheckService,
     PostgresHealthcheckService,
