@@ -11,13 +11,13 @@ format:
 	poetry run ruff format .
 
 db-up:
-	docker-compose --env-file .env -f $(STORAGES) up -d
+	docker compose --env-file .env -f $(STORAGES) up -d
 
 db-down:
-	docker-compose --env-file .env -f $(STORAGES) down
+	docker compose --env-file .env -f $(STORAGES) down
 
 monitoring-up:
-	docker-compose --env-file .env -f $(MONITORING) up -d
+	docker compose --env-file .env -f $(MONITORING) up -d
 
 migrate:
 	alembic upgrade head
