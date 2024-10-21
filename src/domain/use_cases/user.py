@@ -16,4 +16,5 @@ class AddFriendUseCase(BaseUseCase[AddFriendCommand, None]):
     friend_service: IFriendService
 
     async def execute(self, command: AddFriendCommand) -> None:
+        # TODO: Add validation
         await self.friend_service.add_friend(user=command.user, friend=command.friend)
