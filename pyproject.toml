@@ -6,20 +6,22 @@ authors = ["andrei_turobov <forgunn@yandex.ru>"]
 
 [tool.poetry.dependencies]
 python = "^3.12"
-aiohttp = "^3.10.5"
+aiohttp = "^3.10.10"
 aiogram = "^3.13.1"
-pydantic-settings = "^2.5.2"
-SQLAlchemy = {extras = ["asyncio"], version = "^2.0.35"}
+pydantic-settings = "^2.6.0"
+SQLAlchemy = {extras = ["asyncio"], version = "^2.0.36"}
 punq = "^0.7.0"
 asyncpg = "^0.29.0"
 elastic-apm = {extras = ["opentelemetry"], version = "^6.23.0"}
-alembic = "^1.13.2"
-setuptools = "^75.1.0"
+alembic = "^1.13.3"
+setuptools = "^75.2.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 ipython = "^8.27.0"
 ipykernel = "^6.29.5"
-ruff = "^0.6.5"
+ruff = "^0.6.9"
+pytest = "^8.3.3"
+pytest-asyncio = "^0.24.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
