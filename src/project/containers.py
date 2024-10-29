@@ -9,10 +9,6 @@ from src.domain.services.user import (
 )
 from src.domain.use_cases.user import AddFriendUseCase
 from src.gateways.postgresql.database import Database
-from src.gateways.postgresql.repositories.user import (
-    IUserRepository,
-    ORMUserRepository,
-)
 from src.project.configs import settings
 from src.services.healthcheck import (
     CompositeHealthcheckService,
@@ -38,7 +34,6 @@ def _init_container() -> punq.Container:
         ),
     )
 
-    container.register(IUserRepository, ORMUserRepository)
     container.register(IUserService, ORMUserService)
     container.register(IFriendService, ORMUserService)
 
