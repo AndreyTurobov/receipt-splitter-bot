@@ -45,3 +45,7 @@ ignore = [
     "W191", # indentation contains tabs
     "W291", # trailing whitespace
 ]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
