@@ -15,7 +15,6 @@ class CreatedAtOnlyMixin:
     created_at: Mapped[datetime] = mapped_column(
         default=func.now(),
         server_default=func.now(),
-        nullable=False,
         comment="Дата создания записи",
     )
 
@@ -26,7 +25,6 @@ class UpdatedAtMixin(CreatedAtOnlyMixin):
         server_default=func.now(),
         onupdate=func.now(),
         server_onupdate=func.now(),
-        nullable=False,
         comment="Дата обновления записи",
     )
 

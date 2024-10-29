@@ -27,8 +27,8 @@ class PubReceiptItemORM(BaseORM, UUIDOidMixin, UpdatedAtMixin):
     pub_receipt_oid: Mapped[int] = mapped_column(sa.ForeignKey("pub_receipts.oid"))
 
 
-class PubReceiptSplitORM(BaseORM, UUIDOidMixin, UpdatedAtMixin):
-    __tablename__ = "pub_receipt_splits"
+class PubReceiptItemSplitORM(BaseORM, UUIDOidMixin, UpdatedAtMixin):
+    __tablename__ = "pub_receipt_item_splits"
 
     user_oid: Mapped[int] = mapped_column(sa.ForeignKey("users.oid"))
     share: Mapped[int] = mapped_column(sa.Integer)
